@@ -258,6 +258,7 @@
               if($dst > 0){
                 $dst = $dst / 10
               }
+              console.log($dst)
               return '- Distancia: ' + $dst + 'km'
             }
           });
