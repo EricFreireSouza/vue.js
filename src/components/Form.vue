@@ -182,7 +182,6 @@
       },
 
       getCEP: function() {
-        console.log( this.$ceps )
         const that = this
         const url = 'https://viacep.com.br/ws/' + that.form.cep + '/json'
 
@@ -250,15 +249,13 @@
         if(this.locationLoaded){
           var geocoder = new google.maps.Geocoder();
           var $from = new google.maps.LatLng( {lat: this.currentLocation.lat, lng: this.currentLocation.lng} )
-          geocoder.geocode( { 'address': addr}, function(results, status) {console.log(results) 
-            console.log(addr)
+          geocoder.geocode( { 'address': addr}, function(results, status) { 
             if (status == 'OK') {
               var $to = results[0].geometry.location
               var $dst = google.maps.geometry.spherical.computeDistanceBetween( $from, $to )
               if($dst > 0){
                 $dst = $dst / 10
               }
-              console.log($dst)
               return '- Distancia: ' + $dst + 'km'
             }
           });
